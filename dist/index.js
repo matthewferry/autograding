@@ -11445,6 +11445,7 @@ exports.runAll = async (tests, cwd) => {
             failed = true;
             log('');
             log(color.red(`❌ ${test.name}`));
+            log(error.message);
             const newLine = "%0A";
             const message = error.message.replace(/\n/g, newLine);
             core.setFailed(message);
