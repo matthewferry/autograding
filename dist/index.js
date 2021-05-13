@@ -11448,6 +11448,7 @@ exports.runAll = async (tests, cwd) => {
             log(error.message);
             const newLine = "%0A";
             const message = error.message.replace(/\n/gim, newLine);
+            core.setOutput("thing", message);
             core.setFailed(message);
         }
     }

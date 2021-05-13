@@ -230,6 +230,7 @@ export const runAll = async (tests: Array<Test>, cwd: string): Promise<void> => 
       log(error.message)
       const newLine = "%0A"
       const message = error.message.replace(/\n/gim, newLine)
+      core.setOutput("thing", message)
       core.setFailed(message)
     }
   }
