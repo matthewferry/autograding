@@ -40,10 +40,9 @@ export class TestOutputError extends TestError {
   actual: string
 
   constructor(message: string, expected: string, actual: string) {
-    super(`${message}%0AExpected:%0A${expected}%0AActual:%0A${actual}`)
+    super(`${message}\nExpected:\n${expected}\n\nActual:\n${actual}`)
     this.expected = expected
     this.actual = actual
-    console.log(`${message}\nExpected:\n${expected}\nActual:\n${actual}`)
     Error.captureStackTrace(this, TestOutputError)
   }
 }
@@ -179,7 +178,7 @@ const runCommand = async (test: Test, cwd: string, timeout: number): Promise<voi
     default:
       // The default comparison mode is 'included'
       if (!actual.includes(expected)) {
-        throw new TestOutputError(`The output for test ${test.name} did not match`, expected, actual)
+        throw new TestOutputError(`The output for test ${test.name} did not match \r\n`, expected, actual)
       }
       break
   }
