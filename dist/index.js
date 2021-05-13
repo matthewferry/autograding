@@ -11286,6 +11286,7 @@ class TestOutputError extends TestError {
         super(`${message} \\ \r \n \v Expected:\n${expected}\r\n Actual: \r\n ${actual}`);
         this.expected = expected;
         this.actual = actual;
+        console.log(`${message}%0AExpected:%0A${expected}%0AActual:%0A${actual}`);
         Error.captureStackTrace(this, TestOutputError);
     }
 }
