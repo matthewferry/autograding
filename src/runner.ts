@@ -229,7 +229,7 @@ export const runAll = async (tests: Array<Test>, cwd: string): Promise<void> => 
       log(color.red(`❌ ${test.name}`))
       log(error.message)
       const newLine = "%0A"
-      const message = error.message.replace(/\n/g, newLine)
+      const message = error.message.replace(/\n/gim, newLine)
       core.setFailed(message)
     }
   }
