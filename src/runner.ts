@@ -40,10 +40,10 @@ export class TestOutputError extends TestError {
   actual: string
 
   constructor(message: string, expected: string, actual: string) {
-    super(`${message} \\ \r \n \v Expected:\n${expected}\r\n Actual: \r\n ${actual}`)
+    super(`${message}%0AExpected:%0A${expected}%0AActual:%0A${actual}`)
     this.expected = expected
     this.actual = actual
-    console.log(`${message}%0AExpected:%0A${expected}%0AActual:%0A${actual}`)
+    console.log(`${message}\nExpected:\n${expected}\nActual:\n${actual}`)
     Error.captureStackTrace(this, TestOutputError)
   }
 }
